@@ -1,0 +1,21 @@
+{
+    //Set to true if you want to ignore whitespace differences
+    "ignore_whitespace": true,
+
+    //Set to true if you want to ignore differences in new line characters (CR/LF)
+    "ignore_crlf": true,
+
+    //Set to true if you want diff to be case insensitive
+    "ignore_case": true,
+
+    //Ratio, calculated as: (length of changed parts / length of unchanged parts) * 100. When ratio
+    //gets greater than this value intraline changes are not displayed and line is considered as
+    //fully replaced rather than modified.
+    "intraline_changes_threshold": 60,
+
+    //Set this to `true` if you want intraline changes to be found using full-text search instead of
+    //simple comparison of adjacent lines. This may be useful when lines are moved. For optimal results,
+    //please remember about `intraline_changes_threshold` setting.
+    "intraline_analysis_full_text": true
+
+}

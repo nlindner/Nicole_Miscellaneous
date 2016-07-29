@@ -1,0 +1,13 @@
+<snippet>
+	<content><![CDATA[
+/********** CHANGE LOG ***********************************************************************
+   ${1}YYYY.MM.DD INITIALS
+       * Comments here
+          - Sub comments here       
+*********************************************************************************************/
+${2}
+
+]]></content>
+	<tabTrigger>com-sub</tabTrigger>
+	<description>NML - Change Log Comment Block</description>
+</snippet>

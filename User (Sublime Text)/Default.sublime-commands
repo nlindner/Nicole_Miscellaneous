@@ -1,0 +1,70 @@
+[
+
+    // Example commands.
+    // {
+    //     "caption": "Reg Replace: HTML5 Remove Deprecated Type Attr",
+    //     "command": "reg_replace",
+    //     "args": {"replacements": ["html5_remove_deprecated_type_attr"]}
+    // },
+    // {
+    //     "caption": "Reg Replace: Remove Trailing Spaces",
+    //     "command": "reg_replace",
+    //     "args": {"replacements": ["remove_trailing_spaces"]}
+    // },
+    // // Chained replacements in one command
+    // {
+    //     "caption": "Reg Replace: Remove HTML Comments and Trailing Spaces",
+    //     "command": "reg_replace",
+    //     "args": {"replacements": ["remove_html_comments", "remove_trailing_spaces"]}
+    // },
+
+    // Preferences
+    {
+        "caption": "Reg Replace: Mark minute plus SAS steps in log",
+        "command": "reg_replace",
+        "args": {
+        		"replacements": ["sas_log_find_minuteplus_realtime"],
+        		"action": "mark",
+            "options": {"key": "name", "scope": "invalid", "style": "invalid"},
+        		"find_only": true}
+    },
+    {
+        "caption": "Reg Replace: Unmark Example",
+        "command": "reg_replace",
+        "args": {
+            "action": "unmark",
+            "options": {"key": "name"}
+        }
+    },
+    {
+        "caption": "Reg Replace: Obfuscate macro puts for log messages",
+        "command": "reg_replace",
+        "args": {"replacements": ["sas_macro_obfuscateput_error", "sas_macro_obfuscateput_note", "sas_macro_obfuscateput_info", "sas_macro_obfuscateput_warning", "sas_macro_obfuscateput_gotomerror"] }
+    },
+
+    {
+        "caption": "Reg Replace: Replace A Component Of SAS Log NonErrors",
+        "command": "reg_replace",
+        "args": {"replacements": ["sas_log_replace_acomponentof_nonerror"] }
+    },
+
+    {
+        "caption": "Reg Replace: Cleanse _NML_ Parsed DB2 queries",
+        "command": "reg_replace",
+        "args": {"replacements": ["db2_clean_nml_1_spaces", "db2_clean_nml_2_hardreturn", "db2_clean_nml_3_spheader", "db2_clean_nml_4a_spblockbegin", "db2_clean_nml_4b_spblockend", "db2_clean_nml_5a_longspacestonewline_commalist", "db2_clean_nml_5b_longspacestonewline_remainder", "db2_clean_nml_6a_commentlineheader", "db2_clean_nml_6b_commentlineheader"] }
+    },
+
+    {
+        "caption": "Reg Replace: Prettify Noline SQL",
+        "command": "reg_replace",
+        "args": {"replacements": ["sql_prettify_sfwghotu_newline_unindented", "sql_prettify_newline_indent_join", "sql_prettify_newline_indent_on", "sql_prettify_newline_indent_and", "db2_clean_nml_5a_longspacestonewline_commalist", "db2_clean_nml_5b_longspacestonewline_remainder"] }
+    },
+
+    {
+        "caption": "Reg Replace: Clean Then and Else Do",
+        "command": "reg_replace",
+        "args": {"replacements": ["sas_macro_clean_thendo", "sas_macro_clean_elsedo"] }
+    }
+
+
+]

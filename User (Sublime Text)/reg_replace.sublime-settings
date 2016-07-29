@@ -1,0 +1,198 @@
+////////////////////////////////
+// Regex with scope qualifiers//
+////////////////////////////////
+{
+    // Use sub notify if available
+    "use_sub_notify": true,
+
+    "replacements": {
+        // Example replacements
+        "sas_log_replace_acomponentof_nonerror": {
+            "find": "^ERROR: (A component of.*)$",
+            "replace": "%STR(ER)ROR: \\1",
+            "greedy": true,
+            "case": false
+        },
+        "sas_macro_obfuscateput_error": {
+            "find": "(%BQUOTE\\(ERROR:)(.*)\\);",
+            "replace": "%str(E)RROR:\\2;",
+            "greedy": true,
+            "case": false
+        },
+        "sas_macro_obfuscateput_note": {
+            "find": "(%BQUOTE\\(NOTE:)(.*)\\);",
+            "replace": "%str(N)OTE:\\2;",
+            "greedy": true,
+            "case": false
+        },
+        "sas_macro_obfuscateput_info": {
+            "find": "(%BQUOTE\\(INFO:)(.*)\\);",
+            "replace": "%str(I)NFO:\\2;",
+            "greedy": true,
+            "case": false
+        },
+        "sas_macro_obfuscateput_warning": {
+            "find": "(%BQUOTE\\(WARNING:)(.*)\\);",
+            "replace": "%str(W)ARNING:\\2;",
+            "greedy": true,
+            "case": false
+        },
+        "sas_macro_obfuscateput_gotomerror": {
+            "find": "(\\s|%)(Macro|PDemand)Error(:|;)",
+            "replace": "\\1\\2Err\\3",
+            "greedy": true,
+            "case": false
+        },
+        "sas_log_find_minuteplus_realtime": {
+            "find": "((real time\\s+[\\d:\\.]+\\n))",
+            "replace": "\\1_NML_",
+            "greedy": true,
+            "case": false
+        },
+        "db2_clean_nml_1_spaces": {
+            "find": ";--\\s*(_NML_)([^;]+)",
+            "replace": ";\\n--\\2",
+            "greedy": true,
+            "case": false
+        },
+        "db2_clean_nml_2_hardreturn": {
+            "find": "_NML_",
+            "replace": "\\n",
+            "greedy": true,
+            "case": false
+        },
+        "db2_clean_nml_3_spheader": {
+            "find": "(-{72})\\s(--\\s*SQL Stored Procedure)]\\s*(-{72})",
+            "replace": "\\n\\1\\n\\2\\n\\3\\n",
+            "greedy": true,
+            "case": false
+        },
+        "db2_clean_nml_4a_spblockbegin": {
+            "find": "([P|CURSOR_BLOCK]+\\d:)\\s(BEGIN)",
+            "replace": "\\n\\1 \\2",
+            "greedy": true,
+            "case": false
+        },
+        "db2_clean_nml_4b_spblockend": {
+            "find": "(END)\\s([P|CURSOR_BLOCK]+\\d)",
+            "replace": "\\n\\1 \\2",
+            "greedy": true,
+            "case": false
+        },
+        "db2_clean_nml_5a_longspacestonewline_commalist": {
+            "find": "(,) {5,100}",
+            "replace": "\\n\\t\\1",
+            "greedy": true,
+            "case": false
+        },
+        "db2_clean_nml_5b_longspacestonewline_remainder": {
+            "find": " {5,100}",
+            "replace": "\\n",
+            "greedy": true,
+            "case": false
+        },
+        "db2_clean_nml_6a_commentlineheader": {
+            "find": "(--\\*\\*\\s\\w+)\\s\t+:",
+            "replace": "\\n\\1:",
+            "greedy": true,
+            "case": false
+        },
+        "db2_clean_nml_6b_commentlineheader": {
+            "find": "(--\\*\\*[\\w\\s|\\*{93}]+\\*{2} )",
+            "replace": "\\n\\1",
+            "greedy": true,
+            "case": false
+        },
+        "sql_prettify_sfwghotu_newline_unindented": {
+            "find": "\\s(?<!\\n)(SELECT|FROM|WHERE|GROUP BY|ORDER BY|HAVING|UNION)\\s",
+            "replace": "\\n\\t\\1 ",
+            "greedy": true,
+            "case": false
+        },
+        "sql_prettify_newline_indent_join": {
+            "find": "\\s(?<!\\n)(INNER JOIN|JOIN\\b|LEFT JOIN|LEFT OUTER JOIN|FULL JOIN)",
+            "replace": "\\n\\t\\1 ",
+            "greedy": true,
+            "case": false
+        },
+        "sql_prettify_newline_indent_on": {
+            "find": "\\s(?<!\\n)ON\\s",
+            "replace": "\\n\\t\\tON ",
+            "greedy": true,
+            "case": false
+        },
+        "sql_prettify_newline_indent_and": {
+            "find": "\\s(?<!\\n)AND\\s",
+            "replace": "\\n\\tAND ",
+            "greedy": true,
+            "case": false
+        },
+        "sas_macro_clean_thendo": {
+            "find": "(%then *)\\n(\\t+)(%do;)",
+            "replace": "\\n\\2\\1 \\3",
+            "greedy": true,
+            "case": false,
+            "dotall": false
+        },
+        "sas_macro_clean_elsedo": {
+            "find": "(%else.*)\\n(\\t+)(%do;)",
+            "replace": "\\1 \\3",
+            "greedy": true,
+            "case": false,
+            "dotall": false
+        },
+        "sas_updatejoblog_clean_nospace": {
+            "find": "(?<!\\t),(TestVarStatus|delimiter|StepNm|StepId|DataSrc|StepLoc|status|line|CurrJobId|haltOnErr|checkSql|ParamIssueStatus|ParamGood|ParamErr|ParamWrn|dbmsAlias|subjectStatus|WhichMode|preSuffix|timevar|outputTable|getUsingVinSk|inputVinNoColumnName|outputVinNoColumnName|ColumnList_VhclFact|GetVhclInfo_onlyForInvalidVinSk|getCountermeasureDateFields|UseCurrProcSql|IterId|RerunCount|RerunEmail|sqlReqValue|paramNGood)\\s*=",
+            "replace": ", \\1=",
+            "greedy": false,
+            "case": false,
+            "dotall": false
+        },
+        // dotall means that it matches across new lines. Need to be careful to
+        // use LAZY (.+?) instead of GREEDY (.+) match
+        "sas_macro_wrap_writetracerecord_testmode": {
+            "find": "(?<!%do;\\n)^(\\t+)+(%writeTraceRecord.+?;)",
+            "replace": "\\1%if &TestMode\\n\\1%then %do;\\n\\1\\t\\2\\n\\1%end;",
+            "greedy": false,
+            "case": false,
+            "dotall": true
+        },
+
+        "sas_macro_replace_superqline": {
+            "find": "%superq\\(line",
+            "replace": "%bquote(&line",
+            "greedy": true,
+            "case": false,
+            "dotall": false
+        },
+
+        "global_replace_married_initials": {
+            "find": "\\bNML\\b",
+            "replace": "NLM",
+            "greedy": true,
+            "case": false,
+            "dotall": false
+        },
+
+        "global_replace_married_name": {
+            "find": "\\bNicole\\s+(M\\.?\\s+)?+Lindner(?!-Miles)",
+            "replace": "Nicole Lindner-Miles",
+            "greedy": false,
+            "case": false,
+            "dotall": false
+        }
+
+
+     },
+
+    // Color? (scope)
+    "find_highlight_color": "highlight",
+
+    "find_highlight_style": "solid",
+
+    // Search under selection(s) if and only if exists
+    // NML added 2015.09.25
+    "selection_only": true,
+
+    "on_save": false
+}

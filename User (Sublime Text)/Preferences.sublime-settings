@@ -1,0 +1,35 @@
+{
+	"WrapPlus.break_on_hyphens": true,
+	"WrapPlus.wrap_width": 92,
+	"auto_complete": false,
+	"auto_find_in_selection": true,
+	"auto_indent": true,
+	"auto_match_enabled": false,
+	"color_scheme": "Packages/User/SublimeLinter/SublimeColors Solarized Light Customized (SL).tmTheme",
+	"copy_with_empty_selection": false,
+	"detect_indentation": false,
+	"detect_slow_plugins": true,
+	"draw_white_space": "selection",
+	"enable_tab_scrolling": true,
+	"find_selected_text": false,
+	"font_face": "Bitstream Vera Sans Mono",
+	"font_size": 8,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Markdown",
+		"SQL",
+		"Vintage"
+	],
+	"indent_to_bracket": false,
+	"shift_tab_unindent": false,
+	"smart_indent": true,
+	"soda_classic_tabs": true,
+	"tab_completion": false,
+	"tab_size": 3,
+	"theme": "Soda Light 3.sublime-theme",
+	"translate_tabs_to_spaces": false,
+	"use_tab_stops": true,
+	"word_wrap": "false",
+	"wrap_width": 0
+}
