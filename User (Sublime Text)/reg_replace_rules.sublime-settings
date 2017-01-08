@@ -1,0 +1,168 @@
+{
+	"format": "3.0",
+	"replacements":
+	{
+		"db2_clean_nml_1_spaces":
+		{
+			"find": "(?i);--\\s*(_NML_)([^;]+)",
+			"greedy": true,
+			"replace": ";\\n--\\2"
+		},
+		"db2_clean_nml_2_hardreturn":
+		{
+			"find": "(?i)_NML_",
+			"greedy": true,
+			"replace": "\\n"
+		},
+		"db2_clean_nml_3_spheader":
+		{
+			"find": "(?i)(-{72})\\s(--\\s*SQL Stored Procedure)]\\s*(-{72})",
+			"greedy": true,
+			"replace": "\\n\\1\\n\\2\\n\\3\\n"
+		},
+		"db2_clean_nml_4a_spblockbegin":
+		{
+			"find": "(?i)([P|CURSOR_BLOCK]+\\d:)\\s(BEGIN)",
+			"greedy": true,
+			"replace": "\\n\\1 \\2"
+		},
+		"db2_clean_nml_4b_spblockend":
+		{
+			"find": "(?i)(END)\\s([P|CURSOR_BLOCK]+\\d)",
+			"greedy": true,
+			"replace": "\\n\\1 \\2"
+		},
+		"db2_clean_nml_5a_longspacestonewline_commalist":
+		{
+			"find": "(?i)(,) {5,100}",
+			"greedy": true,
+			"replace": "\\n\\t\\1"
+		},
+		"db2_clean_nml_5b_longspacestonewline_remainder":
+		{
+			"find": "(?i) {5,100}",
+			"greedy": true,
+			"replace": "\\n"
+		},
+		"db2_clean_nml_6a_commentlineheader":
+		{
+			"find": "(?i)(--\\*\\*\\s\\w+)\\s\\t+:",
+			"greedy": true,
+			"replace": "\\n\\1:"
+		},
+		"db2_clean_nml_6b_commentlineheader":
+		{
+			"find": "(?i)(--\\*\\*[\\w\\s|\\*{93}]+\\*{2} )",
+			"greedy": true,
+			"replace": "\\n\\1"
+		},
+		"global_replace_married_initials":
+		{
+			"find": "(?i)\\bNML\\b",
+			"greedy": true,
+			"replace": "NLM"
+		},
+		"global_replace_married_name":
+		{
+			"find": "(?i)\\bNicole\\s+(M\\.?\\s+)?+Lindner(?!-Miles)",
+			"greedy": false,
+			"replace": "Nicole Lindner-Miles"
+		},
+		"sas_log_find_minuteplus_realtime":
+		{
+			"find": "(?i)((real time\\s+[\\d:\\.]+\\n))",
+			"greedy": true,
+			"replace": "\\1_NML_"
+		},
+		"sas_log_replace_acomponentof_nonerror":
+		{
+			"find": "(?i)^ERROR: (A component of.*)$",
+			"greedy": true,
+			"replace": "%STR(ER)ROR: \\1"
+		},
+		"sas_macro_clean_elsedo":
+		{
+			"find": "(?i)(%else.*)\\n(\\t+)(%do;)",
+			"greedy": true,
+			"replace": "\\1 \\3"
+		},
+		"sas_macro_clean_thendo":
+		{
+			"find": "(?i)(%then *)\\n(\\t+)(%do;)",
+			"greedy": true,
+			"replace": "\\n\\2\\1 \\3"
+		},
+		"sas_macro_obfuscateput_error":
+		{
+			"find": "(?i)(%BQUOTE\\(ERROR:)(.*)\\);",
+			"greedy": true,
+			"replace": "%str(E)RROR:\\2;"
+		},
+		"sas_macro_obfuscateput_gotomerror":
+		{
+			"find": "(?i)(\\s|%)(Macro|PDemand)Error(:|;)",
+			"greedy": true,
+			"replace": "\\1\\2Err\\3"
+		},
+		"sas_macro_obfuscateput_info":
+		{
+			"find": "(?i)(%BQUOTE\\(INFO:)(.*)\\);",
+			"greedy": true,
+			"replace": "%str(I)NFO:\\2;"
+		},
+		"sas_macro_obfuscateput_note":
+		{
+			"find": "(?i)(%BQUOTE\\(NOTE:)(.*)\\);",
+			"greedy": true,
+			"replace": "%str(N)OTE:\\2;"
+		},
+		"sas_macro_obfuscateput_warning":
+		{
+			"find": "(?i)(%BQUOTE\\(WARNING:)(.*)\\);",
+			"greedy": true,
+			"replace": "%str(W)ARNING:\\2;"
+		},
+		"sas_macro_replace_superqline":
+		{
+			"find": "(?i)%superq\\(line",
+			"greedy": true,
+			"replace": "%bquote(&line"
+		},
+		"sas_macro_wrap_writetracerecord_testmode":
+		{
+			"find": "(?is)(?<!%do;\\n)^(\\t+)+(%writeTraceRecord.+?;)",
+			"greedy": false,
+			"replace": "\\1%if &TestMode\\n\\1%then %do;\\n\\1\\t\\2\\n\\1%end;"
+		},
+		"sas_updatejoblog_clean_nospace":
+		{
+			"find": "(?i)(?<!\\t),(TestVarStatus|delimiter|StepNm|StepId|DataSrc|StepLoc|status|line|CurrJobId|haltOnErr|checkSql|ParamIssueStatus|ParamGood|ParamErr|ParamWrn|dbmsAlias|subjectStatus|WhichMode|preSuffix|timevar|outputTable|getUsingVinSk|inputVinNoColumnName|outputVinNoColumnName|ColumnList_VhclFact|GetVhclInfo_onlyForInvalidVinSk|getCountermeasureDateFields|UseCurrProcSql|IterId|RerunCount|RerunEmail|sqlReqValue|paramNGood)\\s*=",
+			"greedy": false,
+			"replace": ", \\1="
+		},
+		"sql_prettify_newline_indent_and":
+		{
+			"find": "(?i)\\s(?<!\\n)AND\\s",
+			"greedy": true,
+			"replace": "\\n\\tAND "
+		},
+		"sql_prettify_newline_indent_join":
+		{
+			"find": "(?i)\\s(?<!\\n)(INNER JOIN|JOIN\\b|LEFT JOIN|LEFT OUTER JOIN|FULL JOIN)",
+			"greedy": true,
+			"replace": "\\n\\t\\1 "
+		},
+		"sql_prettify_newline_indent_on":
+		{
+			"find": "(?i)\\s(?<!\\n)ON\\s",
+			"greedy": true,
+			"replace": "\\n\\t\\tON "
+		},
+		"sql_prettify_sfwghotu_newline_unindented":
+		{
+			"find": "(?i)\\s(?<!\\n)(SELECT|FROM|WHERE|GROUP BY|ORDER BY|HAVING|UNION)\\s",
+			"greedy": true,
+			"replace": "\\n\\t\\1 "
+		}
+	}
+}

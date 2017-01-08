@@ -1,0 +1,25 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Alignment",
+		"BracketHighlighter",
+		"ImprovedSQL",
+		"Package Control",
+		"PackageDev",
+		"PackageResourceViewer",
+		"PostgreSQL Syntax Highlighting",
+		"RegReplace",
+		"ScopeHunter",
+		"Sublimerge 3",
+		"Theme - Soda",
+		"Theme - Sodarized",
+		"Unicode Character Highlighter",
+		"VBScript",
+		"WordCount",
+		"Wrap Plus"
+	]
+}

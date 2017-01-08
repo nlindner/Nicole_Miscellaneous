@@ -64,7 +64,41 @@
         "caption": "Reg Replace: Clean Then and Else Do",
         "command": "reg_replace",
         "args": {"replacements": ["sas_macro_clean_thendo", "sas_macro_clean_elsedo"] }
-    }
+    },
 
+    {
+        "caption": "Reg Replace: Clean Macro and UpdateJobLog and Name",
+        "command": "reg_replace",
+        "args": {
+        		"replacements": ["sas_macro_obfuscateput_error", "sas_macro_obfuscateput_note"
+        		, "sas_macro_obfuscateput_info", "sas_macro_obfuscateput_warning"
+        		, "sas_macro_obfuscateput_gotomerror", "sas_macro_clean_thendo"
+        		, "sas_macro_clean_elsedo", "sas_updatejoblog_clean_nospace"
+        		, "global_replace_married_initials"],
+        		"multi_pass": true  }
+    },
+
+    {
+        "caption": "Reg Replace: Wrap TestMode Around WriteTraceRecord",
+        "command": "reg_replace",
+        "args": {"replacements": ["sas_macro_wrap_writetracerecord_testmode"], 
+        			  "multi_pass": true }
+    },
+
+    {
+        "caption": "Reg Replace: Switch Superq Line to Bquote",
+        "command": "reg_replace",
+        "args": {
+        		"replacements": ["sas_macro_replace_superqline"]
+        }
+    },
+
+    {
+        "caption": "Reg Replace: Clean UpdateJobLog",
+        "command": "reg_replace",
+        "args": {
+        		"replacements": ["sas_updatejoblog_clean_nospace"],
+        		"multi_pass": true  }
+    },
 
 ]
