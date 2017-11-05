@@ -1,6 +1,6 @@
 {
     //Debug logging
-    "debug_enable": true,
+    "debug_enable": false,
 
     // When only either the left or right bracket can be found
     // this defines if the unmatched bracket should be shown.
@@ -13,6 +13,13 @@
     // If sublime is already running and this gets changed,
     // you will not see any changes (restart requrired to see change)
     "high_visibility_enabled_by_default": false,
+
+    // Experimental: Creates a visible bar at the beginning of all lines between
+    // multiline bracket spans.
+    "content_highlight_bar": false,
+
+    // Experimental: Align the content highlight bar at the bracket indent level
+    "align_content_highlight_bar": false,
 
     // High visibility style and color for high visibility mode
     // (solid|outline|underline)
@@ -27,6 +34,22 @@
 
     // Character threshold to search
     "search_threshold": 5000,
+
+    // Ignore threshold
+    "ignore_threshold": false,
+
+    // Set mode for string escapes to ignore (regex|string)
+    "bracket_string_escape_mode": "string",
+
+    // Set max number of multi-select brackets that will be searched automatically
+    "auto_selection_threshold" : 10,
+
+    // Enable this to completely kill highlighting if "auto_selection_threshold"
+    // is exceeded.  Default is to highlight up to the "auto_selection_threshold".
+    "kill_highlight_on_threshold": true,
+
+    // Disable gutter icons when doing multi-select
+    "no_multi_select_icons": false,
 
     // Rules that define the finding and matching of brackets
     // that are contained in a common scope.
@@ -44,21 +67,61 @@
     // Once all matches are found, the closest pair surrounding
     // the cursor are selected.
     "user_brackets": [
-        // NLM SAS
+        // NML SAS Working Previously (\\b|%)do(?:\\b;|\\s+%while.*;)
         // This catches "%do;", "%do %while....", "%do %until" (must all be on same line), and "%do i = 1 %to N"
         {
-            "name": "sas_mac",
+            "name": "sas_macro_do_blocks",
             "position": 1, // <-- New position
-            "open": "(?:\\b|%)(do)(?:\\b;|\\s+%while.*;|\\s+%until.*;|\\s+over.*;|(?:\\s+[a-zA-Z_&0-9]+\\s+=+\\s+.*(?:\\b|%)to.*;))",
-            "close": "(?:\\b|%)(end);",
+            "open": "(%do)\\b",
+            "close": "(%end)\\s*;",
             "style": "default",
-            "scope_exclude": ["string", "comment", "curly"],
+            "scope_exclude": ["string", "comment", "curly", "keyword.other.datastep.noncontrol.sas", "keyword.control.transaction"],
             "language_filter": "whitelist",
             "language_list": ["SAS", "SAS MacroSQL"],
-            "sub_bracket_search": "false",
+            "find_in_sub_search": "true",
+            "ignore_string_escape": "false",
+            "enabled": true
+        },
+        {
+            "name": "sas_plain_do_blocks",
+            "position": 2, // <-- New position
+            "open": "(?<!%)(\\bdo)\\b",
+            "close": "(?<!%)(\\bend)\\s*;",
+            "style": "default",
+            "scope_exclude": ["string", "comment", "curly", "keyword.other.datastep.noncontrol.sas", "meta.procsql.sas", "keyword.control.transaction"],
+            "language_filter": "whitelist",
+            "language_list": ["SAS", "SAS MacroSQL"],
+            "find_in_sub_search": "true",
+            "ignore_string_escape": "false",
+            "enabled": true
+        },
+        {
+            "name": "sas_report_compute_block",
+            "position": 3, // <-- New position
+            "open": "^\\s*(compute)\\s+",
+            "close": "^\\s*(endcomp\\s*;)",
+            "style": "default", 
+            "scope_exclude": ["string", "comment", "curly", "keyword.other.datastep.noncontrol.sas", "meta.datastep.sas", "meta.procsql.sas"],
+            "language_filter": "whitelist",
+            "language_list": ["SAS", "SAS MacroSQL"],
+            "find_in_sub_search": "true",
+            "ignore_string_escape": "false",
+            "enabled": true
+        },
+        {
+            "name": "sql_case_block",
+            "position": 4, // <-- New position
+            "open": "\\b(?<!%)(case|begin)\\b",
+            "close": "\\b(?<!%)(end)\\b",
+            "style": "default", 
+            "scope_exclude": ["string", "comment", "curly", "keyword.control.macro.sas", "keyword.other.datastep.noncontrol.sas", "meta.datastep.sas", "meta.proc.generic.sas"],
+            "language_filter": "whitelist",
+            "language_list": ["SAS", "SAS MacroSQL", "SQL", "SQL Server"],
+            "find_in_sub_search": "true",
             "ignore_string_escape": "false",
             "enabled": true
         }
+
     ],
 
     /* Plugin settings */
