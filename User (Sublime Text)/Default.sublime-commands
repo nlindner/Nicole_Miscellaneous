@@ -20,13 +20,11 @@
 
     // Preferences
     {
-        "caption": "Reg Replace: Mark minute plus SAS steps in log",
+        "caption": "RegReplace: A Uppercase Support and Keyword Scopes",
         "command": "reg_replace",
         "args": {
-        		"replacements": ["sas_log_find_minuteplus_realtime"],
-        		"action": "mark",
-            "options": {"key": "name", "scope": "invalid", "style": "invalid"},
-        		"find_only": true}
+                "replacements": ["test_keyword_support_uppercase"],
+                "no_selection": true}
     },
     {
         "caption": "Reg Replace: Unmark Example",
@@ -99,6 +97,6 @@
         "args": {
         		"replacements": ["sas_updatejoblog_clean_nospace"],
         		"multi_pass": true  }
-    },
+    }
 
 ]

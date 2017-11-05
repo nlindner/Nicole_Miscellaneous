@@ -4,12 +4,12 @@ These are my core Sublime setting files and snippets
 
 	Preferences.sublime-settings
 	- My preferred settings.
-	- Add "SQL" to "ignored_packages" if you want to install my Packages/User/SQL package instead.
-	- To get some additional SAS syntax/keyword highlighting, add  "color_scheme": "Packages/User/SublimeColors Solarized Light Customized.tmTheme",
+	- Add "SQL" to "ignored_packages" if you want to install my [SQL Server](https://github.com/nlindner/SQL-Server_sublime-syntax) instead.
+	- To get some additional SAS syntax/keyword highlighting, use the Light Color Scheme here
 
 	bh_core.sublime-settings
 	- Dependent on:	BracketHighlighter package
-	- My user settings. If you have your own, then at minimum, need to add "sas_mac" to your user_brackets section.
+	- My user settings. If you have your own, then you can add whichever items within the user_brackets look useful.
 
 	Batch File.sublime-settings
 	- Installed so that SOME syntax highlighting will be applied to *.cmd files
