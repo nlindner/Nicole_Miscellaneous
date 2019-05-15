@@ -1,0 +1,47 @@
+[
+// See http://www.jetmore.org/john/blog/2012/05/getting-up-to-speed-with-sublime-text-2/
+{ "keys": ["ctrl+tab"], "command": "next_view" },
+{ "keys": ["ctrl+shift+tab"], "command": "prev_view" },
+
+// format sql
+// 2019.01.01 { "keys": ["ctrl+k", "ctrl+s"], "command": "format_sql" },
+// 2019.01.01  { "keys": ["ctrl+k", "ctrl+f"], "command": "sql_beautifier" },
+
+//For custom ScopeToClipboardCommand
+//{ "keys": ["shift+alt+ctrl+p"], "command": "scope_to_clipboard"  },
+{ "keys": ["ctrl+alt+shift+p"], "command": "scope_to_clipboard"},
+
+
+// added 2016.02.21
+{ "keys": ["alt+m"], "command": "markdown_preview", "args": {"target": "browser", "parser":"github"}},
+
+//Sublimerge
+    { "keys": ["left"], "command": "sublimerge_merge_left", "context": [
+        {"key": "setting.is_sublimerge_view", "operator": "equal", "operand": true, "match_all": true},
+        {"key": "setting.is_sublimerge_edit_mode", "operator": "equal", "operand": false, "match_all": true}
+    ]},
+
+    { "keys": ["right"], "command": "sublimerge_merge_right", "context": [
+        {"key": "setting.is_sublimerge_view", "operator": "equal", "operand": true, "match_all": true},
+        {"key": "setting.is_sublimerge_edit_mode", "operator": "equal", "operand": false, "match_all": true}
+    ]},
+
+    { "keys": ["shift+left"], "command": "sublimerge_merge_left", "args": {"merge_all": true}, "context": [
+        {"key": "setting.is_sublimerge_view", "operator": "equal", "operand": true, "match_all": true},
+        {"key": "setting.is_sublimerge_edit_mode", "operator": "equal", "operand": false, "match_all": true}
+    ]},
+
+    { "keys": ["shift+right"], "command": "sublimerge_merge_right", "args": {"merge_all": true}, "context": [
+        {"key": "setting.is_sublimerge_view", "operator": "equal", "operand": true, "match_all": true},
+        {"key": "setting.is_sublimerge_edit_mode", "operator": "equal", "operand": false, "match_all": true}
+    ]}
+
+//NLM SendCode for R-IDE
+	,{ 
+		"keys": ["ctrl+shift+alt+p"], 
+		"command": "send_code" ,
+		"args": {"cmd": "$selection\n", "prog": "r"}
+		//"args": {"scope": "selection"}
+	}
+
+]

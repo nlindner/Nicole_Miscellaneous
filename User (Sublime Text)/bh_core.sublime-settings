@@ -112,7 +112,7 @@
             "name": "sql_case_block",
             "position": 4, // <-- New position
             "open": "\\b(?<!%)(case|begin)\\b",
-            "close": "\\b(?<!%)(end)\\b",
+            "close": "\\b(?<!%)(end|commit)\\b",
             "style": "default", 
             "scope_exclude": ["string", "comment", "curly", "keyword.control.macro.sas", "keyword.other.datastep.noncontrol.sas", "meta.datastep.sas", "meta.proc.generic.sas"],
             "language_filter": "whitelist",

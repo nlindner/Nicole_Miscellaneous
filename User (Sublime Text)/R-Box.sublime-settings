@@ -1,0 +1,8 @@
+{
+	 "R64" :           "C:\\Program Files\\R\\R-3.3.2\\bin\\x64\\Rgui.exe",
+    "rscript_binary": "C:\\Program Files\\R\\R-3.5.2\\bin\\x64\\Rscript.exe"
+    // path to Rscript, for example
+    // (mac, linux): "/usr/local/bin/Rscript"
+    // (windows):    "C:\\Program Files\\R\\R-x.y.z\\bin\\Rscript.exe"
+
+}

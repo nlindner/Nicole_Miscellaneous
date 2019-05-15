@@ -1,0 +1,38 @@
+// These settings override both User and Default settings for the Python syntax
+{
+    // The number of spaces a tab is considered equal to
+    "tab_size": 4
+
+    // Set to true to insert spaces when tab is pressed
+   ,"translate_tabs_to_spaces": true
+
+    // If translate_tabs_to_spaces is true, use_tab_stops will make tab and
+    // backspace insert/delete up to the next tabstop
+    //"use_tab_stops": true,
+
+    // Disables horizontal scrolling if enabled.
+    // May be set to true, false, or "auto", where it will be disabled for
+    // source code, and otherwise enabled.
+   ,"word_wrap": "auto"
+
+    // Set to a value other than 0 to force wrapping at that column rather than the
+    // window width
+    // PYTHON: Set to max of 79 https://www.python.org/dev/peps/pep-0008/#id19
+   //,"wrap_width": 80
+	
+      // Columns in which to display vertical rulers
+    ,"rulers": [79]
+
+    // Controls auto pairing of quotes, brackets etc
+   ,"auto_match_enabled": true
+
+    // When enabled, pressing tab will insert the best matching completion.
+    // When disabled, tab will only trigger snippets or insert a tab.
+    // Shift+tab can be used to insert an explicit tab when tab_completion is
+    // enabled.
+   ,"tab_completion": true
+
+    // Enable auto complete to be triggered automatically when typing.
+  // ,"auto_complete": true
+
+}

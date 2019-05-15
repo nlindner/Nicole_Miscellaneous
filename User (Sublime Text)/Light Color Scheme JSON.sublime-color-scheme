@@ -1,0 +1,391 @@
+{
+    "name": "Light Color Scheme, based on Monokai in Sublime 3 build 3127",
+    "author": "Original Monokai Scheme: Sublime Text 3 build 3132, Template and Color Scheme: Nicole Lindner-Miles (github.com/NLindner)",
+    "variables":
+    {
+        "Key_Blue_Soft": "hsl(210, 100%, 40%)", /* Softer blue: support.constant, support.type, support.class, variable.function, variable.annotation */
+        "Key_Blue_Navy": "hsl(224, 83%, 28%)", /* Navy blue: For SAS-specific / dark blue build-in syntax: support.module, etc. */
+        "Key_Blue_Bright": "hsl(233, 96%, 45%)", /* Brighter blue, used frequently (similar to SQL Server default color for keywords): for keywords (other than operators), storage, entity.name.tag, and punctuation decorators */
+        "Key_Green": "hsl(140, 60%, 34%)", /* green: markup insertions, entity-name, attribute-name*/
+        "Key_Orange": "hsl(29, 91%, 54%)", /* orange: Variable.language, variable.parameter invalid.deprecated */
+        "Key_Brown": "hsl(30, 50%, 28%)", /* constants, markup headings, find-in-files match*/
+        "Key_Magenta": "hsl(331, 64%, 45%)", /* magenta: constant escapes and variable.other.parameters. Not used frequently, just for emphasis */
+        "Key_Purple_Orig": "hsl(276, 31%, 50%)", 
+        "Key_Purple_Dark": "hsl(276, 31%, 55%)", 
+        /*"#8959a8",  Deep soft purple: string, entity.name.filename */
+        "Other_Red": "hsl(360, 67%, 47%)", /* markup-deleted, message.error, invalid, misspelling */
+        "Other_GuideActive": "hsl(12, 29%, 50%)",
+        "Other_Border": "hsl(0, 0%, 100%)",
+        "FG_Default": "hsl(60, 1%, 30%)", /* Default font color */
+        "FG_Emphasis": "hsl(210, 6%, 12%)",
+        "FG_Soft": "hsl(90, 2%, 56%)", /* Comment font color (soft for deemphasized text) */
+        "BG_Default": "hsl(60, 43%, 99%)", /* FCFCF5 is current instead of F9F8F0 Default background color: "Eighth Pearl Lusta", a soft offwhite */
+        "BG_SlightVariant": "hsl(51, 22%, 87%)", /* Background for selection */
+        "BG_Emphasis": "hsl(53, 22%, 93%)", /* Invisibles and line highlight*/
+        "BG_Highlight": "hsl(47, 100%, 79%)", /* Find highlight*/
+        "Template_Test_1": "rgb(117,107,177)" /* Invisibles and line highlight*/
+        ,"Template_Test_2": "hsl(0, 0%, 0%)" 
+        /*"FG_Soft_Other": "hsl(120, 1%, 59%)",  barely used: Slightly lighter gray than FG_Soft for JSON strings */
+    },
+    "globals":
+    {
+        "foreground": "var(FG_Default)",
+        "background": "var(BG_Default)",
+        "caret": "var(FG_Emphasis)",
+        "invisibles": "var(BG_Emphasis)",
+        "line_highlight": "var(BG_Emphasis)",
+        "selection": "var(BG_SlightVariant)",
+        "selection_border": "var(Other_Border)",
+        "misspelling": "var(Other_Red)",
+        "active_guide": "color(var(Other_GuideActive) alpha(0.7))",
+        /*"stack_guide": "color(var(Other_GuideActive) alpha(0.5))",*/
+        "find_highlight_foreground": "var(Key_Blue_Navy)",
+        "find_highlight": "var(BG_Highlight)",
+        "brackets_options": "underline",
+        "brackets_foreground": "color(var(FG_Default) alpha(0.65))",
+        "bracket_contents_options": "underline",
+        "bracket_contents_foreground": "color(var(FG_Default) alpha(0.65))",
+        "tags_options": "stippled_underline"
+        /*,"shadow": "var(Key_Magenta)"*/
+    },
+    "rules":
+    [
+        {
+            "name": "Comment",
+            "scope": "comment, punctuation.definition.comment, comment punctuation, comment.block.preprocessor",
+            "foreground": "var(FG_Soft)"
+        },
+        {
+            "name": "JSON String",
+            "scope": "meta.structure.dictionary.json string.quoted.double.json",
+            "foreground": "var(FG_Soft)"
+        },
+        {
+            "name": "YAML String",
+            "scope": "string.unquoted.yaml",
+            "foreground": "var(FG_Default)"
+        },
+        {
+            "name": "diff.header",
+            "scope": "meta.diff, meta.diff.header",
+            "foreground": "var(FG_Soft)"
+        },
+        {
+            "name": "String",
+            "scope": "string",
+            "foreground": "var(Key_Purple_Dark)"
+        },
+        {
+            "name": "Number",
+            "scope": "constant.numeric",
+            "foreground": "var(Key_Brown)"
+        },
+        {
+            "name": "Built-in constant",
+            "scope": "constant.language",
+            "foreground": "var(Key_Brown)"
+        },
+        {
+            "name": "User-defined constant",
+            "scope": "constant.character, constant.other",
+            "foreground": "var(Key_Brown)"
+        },
+        {
+            "name": "Variable",
+            "scope": "variable",
+            "font_style": ""
+        },
+        {
+            "name": "Keyword",
+            "scope": "keyword - keyword.operator, keyword.operator.word",
+            "foreground": "var(Key_Blue_Bright)"
+        },
+        {
+            "name": "Annotation Punctuation",
+            "scope": "punctuation.definition.annotation",
+            "foreground": "var(Key_Blue_Bright)"
+        },
+        {
+            "name": "JavaScript Dollar",
+            "scope": "variable.other.dollar.only.js, variable.other.object.dollar.only.js, variable.type.dollar.only.js, support.class.dollar.only.js",
+            "foreground": "var(Key_Blue_Bright)"
+        },
+        {
+            "name": "Storage",
+            "scope": "storage",
+            "foreground": "var(Key_Blue_Bright)",
+            "font_style": ""
+
+        },
+        {
+            "name": "Storage type",
+            "scope": "storage.type",
+            "foreground": "var(Key_Blue_Soft)",
+            "font_style": ""
+        },
+        {
+            "name": "Entity name",
+            "scope": "entity.name - (entity.name.filename | entity.name.section | entity.name.tag | entity.name.label)",
+            "foreground": "var(Key_Green)",
+            "font_style": ""
+        },
+        {
+            "name": "Inherited class",
+            "scope": "entity.other.inherited-class",
+            "foreground": "var(Key_Green)",
+            "font_style": "italic underline"
+        },
+        {
+        		/* NLM changed from "variable.parameter" alone to align with Monokai*/
+            "name": "Function argument",
+            "scope": "variable.parameter - (source.c | source.c++ | source.objc | source.objc++)",
+            "foreground": "var(Key_Orange)",
+            "font_style": "italic"
+        },
+        {
+            "name": "Language variable",
+            "scope": "variable.language",
+            "foreground": "var(Key_Orange)",
+            "font_style": "italic"
+        },
+        {
+            "name": "Tag name",
+            "scope": "entity.name.tag",
+            "foreground": "var(Key_Blue_Bright)",
+            "font_style": ""
+        },
+        {
+            "name": "Tag attribute",
+            "scope": "entity.other.attribute-name",
+            "foreground": "var(Key_Green)",
+            "font_style": ""
+        },
+        {
+            "name": "Function call",
+            "scope": "variable.function, variable.annotation",
+            "foreground": "var(Key_Blue_Soft)",
+            "font_style": ""
+        },
+        {
+            "name": "Library constant",
+            "scope": "support.constant",
+            "foreground": "var(Key_Blue_Soft)",
+            "font_style": ""
+        },
+        {
+            "name": "Library class/type",
+            "scope": "support.type, support.class",
+            "foreground": "var(Key_Blue_Soft)",
+            "font_style": "italic"
+        },
+        {
+            "name": "Library variable",
+            "scope": "support.other.variable",
+            "font_style": ""
+        },
+        {
+            "name": "Invalid - Illegal",
+            "scope": "invalid.illegal",
+            "foreground": "var(FG_Emphasis)",
+            "background": "color(var(Other_Red) alpha(0.4))"
+        },
+        {
+            "name": "Invalid - Deprecated",
+            "scope": "invalid.deprecated",
+            "foreground": "var(FG_Emphasis)",
+            "background": "color(var(Key_Orange) alpha(0.4))"
+        },
+        {
+            "name": "markup headings",
+            "scope": "markup.heading",
+            "font_style": "bold"
+        },
+        {
+            "name": "markup headings",
+            "scope": "markup.heading punctuation.definition.heading",
+            "foreground": "var(Key_Brown)"
+        },
+        {
+            "name": "markup h1",
+            "scope": "markup.heading.1 punctuation.definition.heading",
+            "foreground": "var(Key_Blue_Bright)"
+        },
+        {
+            "name": "Markdown: Link",
+            "scope": "string.other.link.title.markdown,string.other.link.description.markdown",
+            // NLM changed to align with Markdown Editing "scope": "string.other.link, markup.underline.link",
+            "foreground": "var(Key_Blue_Soft)"
+        },
+        {
+            "name": "markup bold",
+            "scope": "markup.bold",
+            "font_style": "bold"
+        },
+        {
+            "name": "markup italic",
+            "scope": "markup.italic, markup.italic.markdown",
+            "font_style": "italic"
+        },
+        {
+            "name": "markup bold/italic",
+            "scope": "markup.italic markup.bold | markup.bold markup.italic",
+            "font_style": "bold italic"
+        },
+        {
+            "name": "markup hr",
+            "scope": "punctuation.definition.thematic-break",
+            "foreground": "var(FG_Soft)"
+        },
+        {
+            "name": "markup blockquote",
+            "scope": "markup.quote punctuation.definition.blockquote, markup.list punctuation.definition.list_item",
+            "foreground": "var(FG_Soft)"
+        },
+        {
+            "name": "markup numbered list bullets",
+            "scope": "markup.list.numbered.bullet",
+            "foreground": "var(Key_Brown)"
+        },
+        {
+            "name": "markup bullets",
+            "scope": "markup.list.unnumbered.bullet | (markup.list.numbered punctuation.definition)",
+            "foreground": "color(var(Key_Blue_Navy) alpha(0.67))"
+        },
+        {
+            "name": "markup code",
+            "scope": "markup.raw",
+            "background": "color(var(Key_Blue_Navy) alpha(0.094))"
+        },
+        {
+            "name": "markup punctuation",
+            "scope": "markup.raw punctuation.definition.raw",
+            "foreground": "color(var(Key_Blue_Navy) alpha(0.67))"
+        },
+        {
+            "name": "markup punctuation",
+            "scope": "(text punctuation.definition.italic | text punctuation.definition.bold)",
+            "foreground": "color(var(Key_Blue_Navy) alpha(0.67))"
+        },
+        {
+            "name": "diff.deleted",
+            "scope": "markup.deleted",
+            "foreground": "var(Other_Red)"
+        },
+        {
+            "name": "diff.inserted",
+            "scope": "markup.inserted",
+            "foreground": "var(Key_Green)"
+        },
+        {
+            "name": "diff.changed",
+            "scope": "markup.changed",
+            "foreground": "var(Key_Purple_Dark)"
+        },
+        {
+            "scope": "constant.numeric.line-number.find-in-files - match",
+            "foreground": "color(var(Key_Brown) alpha(0.63))"
+        },
+        {
+            "scope": "entity.name.filename",
+            "foreground": "var(Key_Purple_Dark)"
+        },
+        {
+            "name": "Unlike Monokai (F83333), mapped to standard template color",
+            "scope": "message.error",
+            "foreground": "var(Other_Red)"
+        },
+        {
+            "name": "Library function (Unlike Monokai, added exclusions for sas and sql)",
+            "scope": "support.function, support.macro - (source.sas, source.sql, source.sqlserver)",
+            "foreground": "var(Key_Blue_Soft)",
+            "font_style": ""
+        },
+        {
+            "name": "Entity name",
+            "scope": "entity.name.function",
+            "foreground": "var(Key_Blue_Navy)",
+            "font_style": "italic"
+        },
+        {
+            "scope": "punctuation.definition.function.name, punctuation.definition.builtin",
+            "foreground": "var(Key_Blue_Navy)",
+            "font_style": "italic"
+        },
+        {
+            "name": "Constant escapes (custom distinction, not native to Monokai)",
+            "scope": "string.regexp, constant.character.escape",
+            "foreground": "var(Key_Magenta)",
+            "font_style": "bold"
+        },
+        {
+            "name": "Support Modules (Not native to Monokai but included in SublimeText 3 documentation Scope Naming)",
+            "scope": "support.module",
+            "foreground": "var(Key_Blue_Navy)",
+            "font_style": "bold"
+        },
+        {
+            "name": "Punctuation decorators (Not native to Monokai but included in SublimeText 3 documentation Scope Naming)",
+            "scope": "punctuation.definition.keyword",
+            "foreground": "var(Key_Blue_Bright)"
+        },
+        {
+            "name": "My preference, variation for object names (keeping similar to entity.name.function, which is supposed to be scope used when variable.function gets defined)",
+            "scope": "variable.function.name",
+            "foreground": "var(Key_Blue_Navy)",
+            "font_style": "italic"
+        },
+        {
+            "name": "Punctuation Separators and Terminators: Bolded Slight Variant FG",
+            "scope": "punctuation.separator, punctuation.terminator",
+            "foreground": "var(FG_Emphasis)",
+            "font_style": "bold"
+        },
+        {
+            "name": "SAS-specific verbiage for macros (e.g., MACRO, MEND, and Pct-sign prefixes)",
+            "scope": "support.macro.builtin, punctuation.definition.variable.macro.builtin.sas",
+            "foreground": "var(Key_Blue_Navy)",
+            "font_style": "bold"
+        },
+        {
+            "name": "SAS-specific override for macro names. Yes, I like them bolded",
+            "scope": "variable.function.name.macro",
+            "foreground": "var(Key_Blue_Navy)",
+            "font_style": "bold"
+        },
+        {
+            "name": "SAS-specific variation for macro and data-step control keyword (if then etc.)",
+            "scope": "keyword.control.macro.sas, keyword.control.nonmacro.sas",
+            "foreground": "var(Key_Green)"
+        },
+        /* todo move variable.other.parameter and variable.other.parameter.nested to below variable.parameter */
+        {
+            "name": "SAS-specific variation for global parameters. SAS SELECT INTO :... will retain variable.parameter",
+            "scope": "variable.other.parameter, punctuation.definition.variable.parameter",
+            "foreground": "var(Key_Magenta)"
+        },
+        {
+            "name": "SAS-specific variation for nested global parameters",
+            "scope": "variable.other.parameter.nested.sas",
+            "foreground": "var(Key_Magenta)",
+            "font_style": "bold"
+        },
+        {
+            "name": "SAS-specific variation to highlight keywords when invalid in the specific scoping context",
+            "scope": "meta.procsql.sas comment.line.double-dash.sql, meta.datastep.sas keyword.operator.ne.sqlonly.sas, meta.proc.generic.sas keyword.operator.ne.sqlonly.sas",
+            "foreground": "var(FG_Emphasis)",
+            "background": "color(var(Other_Red) alpha(0.4))"
+        },
+        {
+            "name": "SQL-specific variation to highlight the table join alias. Will invoke if I ever get the match pattern working.",
+            "scope": "variable.function.table-alias.sql",
+            "foreground": "var(Key_Blue_Navy)",
+            "font_style": "bold"
+         },
+        {
+            "name": "Sections (NLM addition for markdown)",
+            "scope": "entity.name.section,entity.name.section.markdown",
+            "foreground": "var(FG_Emphasis)",
+            "font_style": "bold"
+        }
+   ]
+}

@@ -1,0 +1,24 @@
+{
+    //Defines how to deal with whitespace differences. Array consisting of the following:
+    //"begin" - ignore at line begin, "middle" - ignore in the middle, "end" - ignore at line end
+    "ignore_whitespace": ["begin", "middle", "end"],
+    //["begin", "middle", "end"]
+    // nlm "begin", "middle", "end"
+
+    //Set to true if you want to ignore differences in new line characters (CR/LF)
+    "ignore_crlf": true,
+
+    //Set to true if you want diff to be case insensitive
+    "ignore_case": true,
+
+     //set to true if you want lines to wrap on words (this is not recommended due to
+     //readability reasons)
+     
+
+     "view": {
+     		"word_wrap": true,
+     		"highlight_line": true,
+     		"line_numbers": true}
+
+
+}

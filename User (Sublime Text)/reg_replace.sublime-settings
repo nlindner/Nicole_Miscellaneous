@@ -194,5 +194,8 @@
     // NML added 2015.09.25
     "selection_only": true,
 
-    "on_save": false
+    "on_save": false,
+
+    "extended_back_references": true    
+
 }
